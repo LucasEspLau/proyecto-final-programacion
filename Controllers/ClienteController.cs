@@ -22,6 +22,20 @@ public class ClienteController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public IActionResult Create([Bind("Nombres,ApellidoPaterno,ApellidoMaterno,Email,Dni,Celular,Genero")] User cliente)
+    {
+        cliente.Rol=1;
+        if (ModelState.IsValid)
+        {
+            ViewData["Message"] = "El cliente se ha registrado, Cliente Rol : "+ cliente.Rol;
+
+            return View("Index",cliente);
+        }else{
+             ViewData["Message"] = "Error al crear al cliente";
+        }
+        return View("Index");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
