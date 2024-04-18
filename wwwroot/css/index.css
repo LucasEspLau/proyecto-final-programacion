@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+body {
+    width: 100%;
+    background-image: url("/images/imgFondo.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+
+:root {
+    --my-blue: #0074E4;
+    --light-my-blue: #6FA6FF;
+    /* Aquí defines el tono más claro */
+    --celeste: #40E0D0;
+    --light-celeste: hsl(177, 72%, 70%);
+    --amarillo: #f9d806;
+    --light-amarillo: #ffee80;
+    --rojo: #FF0000;
+    --light-rojo: #FFAFAF;
+    --verde: #369681;
+    --light-verde: #00B050;
+    --black: #130f40;
+    --light-color: #666;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+.bienvenida .codigo {
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+.bienvenida .gracias {
+    color: #FFFFFF;
+    font-size: 30px;
+    text-decoration: underline;
+}
+
+.bienvenida .conoce {
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    width: 100%;
+    text-align: center;
+}
+
+.libre {
+    background-image: url("/images/imgpro1.jpg");
+    color: black;
+    font-family: "Battambang", Arial, sans-serif; /* Aplica la fuente Battambang */
+    font-size: 14px; /* Hace que el tamaño del texto sea más pequeño */
+    padding: 10px; /* Añade un espacio de relleno alrededor del texto */
+    border: 1px solid black; /* Añade un borde negro alrededor del elemento */
+    border-radius: 5px; /* Añade esquinas redondeadas al elemento */
+    width: fit-content; /* Hace que el ancho del elemento se ajuste automáticamente al contenido */
+    margin: 0 auto; /* Centra el elemento horizontalmente */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+
+.libre p {
+    color: #FFFFFF;
+}
+
+.descripcion {
+    background-image: url("/images/primer.jpg");
+    color: #FFFFFF;
+    
+}
+
+.descripcion p {
+    color: #FFFFFF;
+}
+
+
+
+
+/* Estilos generales */
+.general1 {
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/primer.jpg");
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.mision p {
+    background-color: rgba(144, 238, 144, 0.5);
+    color: black; /* Color del texto */
+    text-align: left; /* Alineación del texto a la izquierda */
+    padding: 20px; /* Espaciado interno para separar el contenido del borde */
+    border-radius: 10px; /* Bordes circulares */
+    width: 80%;
+}
+
+/* Media query para ajustar estilos en pantallas más pequeñas */
+@media only screen and (max-width: 600px) {
+    .general1 {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    }
+
+}
+.general2 {
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/img3.jpg");
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.title{
+    font-size: 60px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 20px;
+    background-color: rgba(255, 0, 0, 0.5); /* Rojo transparente */
+    color: black; /* Color del texto */
+    text-align: left; /* Alineación del texto a la izquierda */
+    padding: 20px; /* Espaciado interno para separar el contenido del borde */
+    border-radius: 10px; /* Bordes circulares */
+    width: 40%;
+    height: 20%;
+}
+.vision p {
+    background-color: rgba(144, 238, 144, 0.5);
+    color: black; /* Color del texto */
+    text-align: left; /* Alineación del texto a la izquierda */
+    padding: 20px; /* Espaciado interno para separar el contenido del borde */
+    border-radius: 10px; /* Bordes circulares */
+    width: 80%;
+}
+
+@media only screen and (max-width: 600px) {
+    .general2 {
+        flex-direction: column; /* Cambia la dirección del flexbox a columna */
+        align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    }
+
+    .vision p {
+        width: 100%; /* Establece el ancho del texto al 100% en pantallas pequeñas */
+    }
+}
+.title1{
+    font-size: 60px;
+    font-weight: 600;
+    font-family: "Battambang", Arial, sans-serif;
+}
+
+
+.p {
+    font-size: 18px;
+    color: #000000;
+    line-height: 2;
+}
+
+@media (max-width: 600px) {
+    .title{
+        font-size: 35px;
+        padding: 0 20px;
+    }
+
+    .gracias .p{
+        font-size: 10px;
+    }
+}
+
+.alerta {
+    background-color: #ffffff;
+    text-align: center;
+    width: fit-content;
+    padding: 1rem 2rem;
+    margin: 1rem auto auto;
+    font-size: 2rem;
+    border-radius: 2.5rem;
+    color: #000000;
+}
+
+@media(max-width: 600px){
+    .alerta {
+        width: 80%;
+        margin: 3rem auto auto;
+    }
+}
