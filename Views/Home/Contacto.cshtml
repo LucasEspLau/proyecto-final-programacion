@@ -2,152 +2,135 @@
     ViewData["Title"] = "Solicitar Cotización";
 }
 <style>
-:root {
-    --my-blue: #0074E4;
-    --light-my-blue: #6FA6FF;
-    /* Aquí defines el tono más claro */
-    --celeste: #40E0D0;
-    --light-celeste: hsl(177, 72%, 70%);
-    --amarillo: #f9d806;
-    --light-amarillo: #ffee80;
-    --rojo: #FF0000;
-    --light-rojo: #FFAFAF;
-    --verde: #369681;
-    --light-verde: #00B050;
-    --black: #130f40;
-    --light-color: #666;
-    --border: .1rem solid rgba(0, 0, 0, .1);
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-}
+    .contact {
+        padding: 80px 0;
+        background-color: #f8f9fa;
+    }
 
-* {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    transition: all .2s linear;
-}
+    .contact .heading {
+        text-align: center;
+        margin-bottom: 60px;
+    }
 
-body {
-    background: url("https://lh3.googleusercontent.com/u/0/drive-viewer/AK7aPaA1DqApdFa1jfZIt4o4pKFK0TJBmft-Hty7PQZYM0s33V_qB4mBBDgnCJHnjW9eejEMUL3DLQ3nfCDLIQGw9qK2_zQs=w1908-h897");
-    background-attachment: fixed;
-    background-size: cover;
-}
+    .contact .heading span {
+        font-family: 'Montserrat', sans-serif;
+    }
 
-section {
-    padding: 2rem 6%;
-}
+    .contact .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-.heading {
-    text-align: center;
-    font-size: 4.5rem;
-    color: #000000;
-    background-color: #ffffff;
-    width: fit-content;
-    padding: 10px 20px;
-    margin: 10px auto;
-    border-radius: 4rem;
-}
+    .contact .map {
+        width: 100%;
+        height: 400px;
+        margin-bottom: 30px;
+    }
 
-.heading span {
-    position: relative;
-    z-index: 0;
-}
+    .contact form {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-/* contact section SU CODIGO DE CSS  */
+    .contact form h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
 
-.contact .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-}
+    .contact form .box {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-.contact .row .map {
-    flex: 1 1 42rem;
-    width: 100%;
-    padding: 2rem;
-    border: var(--border);
-    border-radius: 3rem;
-    box-shadow: var(--box-shadow);
-    background-color: #f7f9fa;
-}
+    .contact form textarea {
+        resize: vertical;
+    }
 
-.contact .row form {
-    flex: 1 1 42rem;
-    padding: 2rem;
-    border: var(--border);
-    border-radius: 3rem;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-    background-color: #f7f9fa;
-}
+    .contact form .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-.contact .row form h3 {
-    font-size: 3rem;
-    color: #000000;
-}
+    .contact form .btn:hover {
+        background-color: #0056b3;
+    }
 
-.contact .row form .box {
-    margin: .7rem 0;
-    width: 100%;
-    border: var(--border);
-    padding: 1rem;
-    font-size: 1.6rem;
-    color: var(--black);
-    text-transform: none;
-    border-radius: .5rem;
-}
+    .contact .alert {
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
 
-.contact .row form textarea {
-    height: 15rem;
-    resize: none;
-}
+    .alert-success {
+        background-color: #28a745;
+        color: #fff;
+    }
 
-.btn{
-    font-size: 17px;
-    background-color: #00BFFF;
-    color: #000000;
-    font-weight: 500;
-    border-radius: 1rem;
-    padding: 0.5rem 1rem;
-    transition: background 0.3s linear;
-    margin: 0.5rem;
-}
-
-.btn:hover{
-    background-color: #ffffff;
-}
+    .map-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        margin-top: 150px;
+    }
 </style>
 <link rel="stylesheet" href="~/css/contacto.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
 <section class="contact" id="contact">
     <h1 class="heading">
-        <span>Solicitar Cotización</span>
+        <span>PONERSE EN CONTACTO CON NOSOTROS</span>
     </h1>
-    <div class="row">
-        <iframe class="map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5854482620507!2d-76.94473582703425!3d-12.072018542367156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6e79034dc63%3A0x393610bdc506718b!2sFacultad%20de%20Ingenier%C3%ADa%20y%20Arquitectura%20-%20USMP!5e0!3m2!1ses!2spe!4v1698767104135!5m2!1ses!2spe"
-            allowfullscreen="" loading="lazy">
-        </iframe>
 
-        <form asp-controller="Home" asp-action="Create" method="post">
-            <h3>Ponerse En Contacto</h3>
-            <input type="text" placeholder="Nombre Completo" class="box" id="Nombre" name="Nombre" required>
-            <input type="email" placeholder="Correo electrónico" class="box" id="Email" name="Email" required>
-            <input type="number" placeholder="Número de Teléfono" class="box" id="Phone" name="Phone" required>
-            <input type="text" placeholder="Asunto" class="box" id="Asunto" name="Asunto" required>
-            <textarea placeholder="Mensaje" class="box" rows="10" cols="30" id="Mensaje" name="Mensaje"
-                required></textarea>
-            <input type="submit" value="Enviar Mensaje" class="btn">
-        </form>
-
-        @if (TempData["MessageCONTACTO"] != null)
-        {
-            <div class="alert alert-success" id="MensajesVerdeRojo">
-                @TempData["MessageCONTACTO"]
+    <div class="container">
+        <div class="row">
+            <div class="col-6 map-container">
+                <iframe class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5854482620507!2d-76.94473582703425!3d-12.072018542367156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6e79034dc63%3A0x393610bdc506718b!2sFacultad%20de%20Ingenier%C3%ADa%20y%20Arquitectura%20-%20USMP!5e0!3m2!1ses!2spe!4v1698767104135!5m2!1ses!2spe"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+                @if (TempData["MessageCONTACTO"] != null)
+                {
+                    <div class="alert alert-success" id="MensajesVerdeRojo">
+                        @TempData["MessageCONTACTO"]
+                    </div>
+                }
             </div>
-        }
+
+            <div class="col-6">
+                <form asp-controller="Home" asp-action="Create" method="post">
+                    <h3>Ponerse En Contacto</h3>
+                    <input type="text" placeholder="Nombre Completo" class="box" id="Nombre" name="Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" class="box" id="Email" name="Email" required>
+                    <input type="number" placeholder="Número de Teléfono" class="box" id="Phone" name="Phone" required>
+                    <input type="text" placeholder="Asunto" class="box" id="Asunto" name="Asunto" required>
+                    <textarea placeholder="Mensaje" class="box" rows="10" cols="30" id="Mensaje" name="Mensaje"
+                        required></textarea>
+                    <input type="submit" value="Enviar Mensaje" class="btn">
+                </form>
+
+            </div>
+        </div>
     </div>
+
+
+
+
 </section>
