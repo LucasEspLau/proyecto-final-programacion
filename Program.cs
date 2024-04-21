@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using trabajo_final_grupo_verde.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
+using trabajo_final_grupo_verde.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,17 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+
+// Aquí es donde debes hacer el cambio, usa builder.Configuration en lugar de Configuration
+builder.Services.AddTransient<IMyEmailSender, EmailSender>(i =>
+        new EmailSender(
+            builder.Configuration["Email:SmtpServer"],
+            int.Parse(builder.Configuration["Email:SmtpPort"]),
+            builder.Configuration["Email:SmtpUsername"],
+            builder.Configuration["Email:SmtpPassword"]
+        )
+    );
 
 var app = builder.Build();
 
