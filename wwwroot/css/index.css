@@ -61,7 +61,7 @@ body {
     font-size: 14px; /* Hace que el tamaño del texto sea más pequeño */
     padding: 10px; /* Añade un espacio de relleno alrededor del texto */
     border-radius: 5px; /* Añade esquinas redondeadas al elemento */
-    width: fit-content; /* Hace que el ancho del elemento se ajuste automáticamente al contenido */
+    width: 100%; /* Hace que el ancho del elemento se ajuste automáticamente al contenido */
     margin: 0 auto; /* Centra el elemento horizontalmente */
     text-align: center; /* Centra el texto horizontalmente */
 }
