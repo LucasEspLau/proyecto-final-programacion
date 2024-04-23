@@ -264,6 +264,10 @@ namespace trabajo_final_grupo_verde.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("ImagenURL")
                         .IsRequired()
                         .HasColumnType("text");

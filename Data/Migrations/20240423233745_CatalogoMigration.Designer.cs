@@ -12,7 +12,7 @@ using trabajo_final_grupo_verde.Data;
 namespace trabajo_final_grupo_verde.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240422215016_CatalogoMigration")]
+    [Migration("20240423233745_CatalogoMigration")]
     partial class CatalogoMigration
     {
         /// <inheritdoc />
@@ -266,6 +266,10 @@ namespace trabajo_final_grupo_verde.Data.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<string>("ImagenURL")
                         .IsRequired()

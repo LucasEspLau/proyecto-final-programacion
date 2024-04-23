@@ -1,9 +1,9 @@
 @model IEnumerable<trabajo_final_grupo_verde.Models.Producto>
 @{
-    ViewData["Title"] = "Catalogo";
+    ViewData["Title"] = "CATÁLOGO";
 }
 <body style="background-color: #F4F4F4;">
-  <h1>@ViewData["Title"]</h1>
+  <h1 style="text-align: center;">@ViewData["Title"]</h1>
   <div class="container">
     <h1>@ViewData["Message"]</h1>
     <div class="row">
@@ -21,8 +21,8 @@
                 <div class="card-body">
                   <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
                   <p class="card-text">@Html.DisplayFor(modelItem => item.Precio)</p>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Add</a>
-                  <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">View</a>
+                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Agregar a carrito</a>
+                  <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Ver más</a>
                 </div>
               </div>
             </div>

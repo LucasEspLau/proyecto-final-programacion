@@ -20,6 +20,9 @@ namespace trabajo_final_grupo_verde.Models
         public Decimal Precio {get; set; }
         [NotNull]
         public string? ImagenURL {get; set; }
+
+         [NotNull]
+        public string? Descripcion {get; set; }
   
     }
 }
