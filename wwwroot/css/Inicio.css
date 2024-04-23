@@ -1,0 +1,51 @@
+/* .gradient-custom-2 mantiene los estilos anteriores */
+.gradient-custom-2 {
+    /* Fallback para navegadores antiguos */
+    background: #b3e5fc; /* Color de fondo para navegadores antiguos (celeste claro) */
+
+    /* Degradado lineal de izquierda a derecha para navegadores modernos */
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #81d4fa, #4fc3f7, #29b6f6, #03a9f4);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #81d4fa, #4fc3f7, #29b6f6, #03a9f4);
+}
+
+
+/* Estilos para aplicar la imagen de fondo a todo el body */
+body {
+    width: 100%;
+    background-image: url("/images/imagen2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: #FFFFFF;
+}
+.descripcion {
+    background-image: url("/images/primer.jpg");
+    
+
+}
+
+
+/* @media (min-width: 769px) mantiene los estilos anteriores */
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: 0.3rem;
+        border-bottom-right-radius: 0.3rem;
+    }
+}
+/* Estilos para el texto de la vista de registro */
+.gradient-custom-2 h4, .gradient-custom-2 p {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Utiliza una fuente serif más formal */
+    color: white; /* Asegura que el color del texto sea blanco para un buen contraste */
+}
+
+/* Ajusta el tamaño de la fuente si es necesario */
+.gradient-custom-2 h4 {
+    font-size: 5rem; /* Tamaño de fuente más grande para el título */
+    font-weight: bold; /* Hace que el título sea más destacado */
+}
+
+.gradient-custom-2 p {
+    font-size: 1.5rem; /* Tamaño de fuente estándar para el párrafo */
+}

@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
+
 body {
     width: 100%;
-    background-image: url("/images/imgFondo.jpg");
+    background-image: url("/images/imagen5.jpg");
     background-attachment: fixed;
     background-size: cover;
+    
     color: #FFFFFF;
 }
 
@@ -53,9 +55,9 @@ body {
 }
 
 .libre {
-    background-image: url("/images/imgpro1.jpg");
+    background-image: url("/images/imagen6.jpg");
     color: black;
-    font-family: "Battambang", Arial, sans-serif; /* Aplica la fuente Battambang */
+    font-family: 'Playfair Display', serif;
     font-size: 14px; /* Hace que el tamaño del texto sea más pequeño */
     padding: 10px; /* Añade un espacio de relleno alrededor del texto */
     border: 1px solid black; /* Añade un borde negro alrededor del elemento */
@@ -87,7 +89,7 @@ body {
 .general1 {
     justify-content: center;
     align-items: center;
-    background-image: url("/images/primer.jpg");
+    background-image: url("/images/imagen8.jpg");
     background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
     background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
     display: flex;
@@ -115,7 +117,7 @@ body {
 .general2 {
     justify-content: center;
     align-items: center;
-    background-image: url("/images/img3.jpg");
+    background-image: url("/images/imagen9.jpg");
     background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
     background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
     display: flex;
@@ -128,7 +130,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     padding: 20px;
-    background-color: rgba(255, 0, 0, 0.5); /* Rojo transparente */
+    background-color: rgba(135, 206, 250, 0.5); /* Rojo transparente */
     color: black; /* Color del texto */
     text-align: left; /* Alineación del texto a la izquierda */
     padding: 20px; /* Espaciado interno para separar el contenido del borde */
