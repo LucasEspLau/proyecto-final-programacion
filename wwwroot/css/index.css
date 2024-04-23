@@ -60,7 +60,6 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 14px; /* Hace que el tamaño del texto sea más pequeño */
     padding: 10px; /* Añade un espacio de relleno alrededor del texto */
-    border: 1px solid black; /* Añade un borde negro alrededor del elemento */
     border-radius: 5px; /* Añade esquinas redondeadas al elemento */
     width: fit-content; /* Hace que el ancho del elemento se ajuste automáticamente al contenido */
     margin: 0 auto; /* Centra el elemento horizontalmente */
@@ -94,15 +93,23 @@ body {
     background-size: cover; /* Hace que la imagen de fondo cubra todo el contenedor */
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding: 10px;
 }
 
+.mision{
+
+}
 .mision p {
-    background-color: rgba(144, 238, 144, 0.5);
+    background-color: rgba(144, 238, 144, 0.7);
     color: black; /* Color del texto */
     text-align: left; /* Alineación del texto a la izquierda */
+    font-size: medium;
+    font-weight: 600;
     padding: 20px; /* Espaciado interno para separar el contenido del borde */
     border-radius: 10px; /* Bordes circulares */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+
     width: 80%;
 }
 
@@ -124,26 +131,34 @@ body {
     flex-direction: row;
     padding: 10px;
 }
-
-.title{
+.title {
     font-size: 60px;
     font-weight: 600;
     text-transform: uppercase;
     padding: 20px;
-    background-color: rgba(135, 206, 250, 0.5); /* Rojo transparente */
+    background-color: rgba(135, 206, 250, 0.6); /* Fondo azul transparente */
     color: black; /* Color del texto */
-    text-align: left; /* Alineación del texto a la izquierda */
+    text-align: center; /* Alineación del texto al centro */
     padding: 20px; /* Espaciado interno para separar el contenido del borde */
     border-radius: 10px; /* Bordes circulares */
     width: 40%;
     height: 20%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+    display: flex; /* Utilizar flexbox para centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
 }
+
 .vision p {
-    background-color: rgba(144, 238, 144, 0.5);
+    background-color: rgba(144, 238, 144, 0.7);
     color: black; /* Color del texto */
     text-align: left; /* Alineación del texto a la izquierda */
+    font-size: medium;
+    font-weight: 600;
     padding: 20px; /* Espaciado interno para separar el contenido del borde */
     border-radius: 10px; /* Bordes circulares */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+
     width: 80%;
 }
 
@@ -161,6 +176,7 @@ body {
     font-size: 60px;
     font-weight: 600;
     font-family: "Battambang", Arial, sans-serif;
+    
 }
 
 

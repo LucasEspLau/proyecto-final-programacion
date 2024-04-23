@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = "Catalogo";
 }
-
-<h1>@ViewData["Title"]</h1>
+<body style="background-color: #F4F4F4;">
+  <h1>@ViewData["Title"]</h1>
   <div class="container">
     <h1>@ViewData["Message"]</h1>
     <div class="row">
@@ -11,7 +11,7 @@
         <div id="products" class="mb-3">
           <div class="row">
             @foreach (var item in Model) {
-            <div class="col-sm-4">
+            <div class="col-sm-6 col-md-4">
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="card-img-actions">
@@ -32,3 +32,5 @@
       </div>
     </div>
   </div>
+
+</body>

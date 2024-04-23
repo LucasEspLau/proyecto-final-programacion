@@ -19,7 +19,7 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color: #e3f2fd;font-weight: 600;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Vilife</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
@@ -48,13 +48,14 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container" style="min-height: 100vh;">
+        <main role="main" class="">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="text-center text-lg-start border border-white mt-xl-5 pt-4">
+
+    <footer class="text-center text-lg-start border border-white  pt-4">
     <!-- Grid container -->
     <div class="container p-4">
       <!--Grid row-->
