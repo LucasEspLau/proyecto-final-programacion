@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using trabajo_final_grupo_verde.Data;
 using Microsoft.EntityFrameworkCore;
+using trabajo_final_grupo_verde.Models;
 
 namespace trabajo_final_grupo_verde.Controllers
 {
@@ -24,9 +25,17 @@ namespace trabajo_final_grupo_verde.Controllers
         public IActionResult Index()
         {
             var productos = from o in _context.DataProducto select o;
-            //productos = productos.Where(l => l.Status.Contains("A"));
             return View(productos.ToList());
         }
+
+          public async Task<IActionResult> Detalle(int? id){
+            Producto objProduct = await _context.DataProducto.FindAsync(id);
+            if(objProduct == null){
+                return NotFound();
+            }
+            return View(objProduct);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
