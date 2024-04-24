@@ -1,0 +1,149 @@
+
+<link rel="stylesheet" href="~/css/stylePr.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <div class="wrapper">
+      <br><br><br>
+      <p>VILIFE - TU EMPRESA DE VINOS</p>
+      <h1>PREGUNTAS FRECUENTES</h1>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Cuáles son los tipos de vino que ofrecen?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Ofrecemos una amplia variedad de vinos, desde tintos robustos hasta blancos refrescantes, pasando por rosados elegantes y espumosos festivos.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿De dónde provienen sus uvas?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Nuestras uvas provienen de viñedos cuidadosamente seleccionados en regiones vinícolas reconocidas por su calidad y tradición, como la región de Ica en Peru.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Cuál es el proceso de elaboración de sus vinos?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Nuestros vinos pasan por un proceso meticuloso que incluye la selección manual de uvas, la fermentación controlada y el envejecimiento en barricas de roble para obtener sabores y aromas excepcionales.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Tienen vinos orgánicos o sostenibles?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Cada vino tiene sugerencias de maridaje en nuestras etiquetas y en nuestro sitio web, pero en general, recomendamos maridar nuestros tintos con carnes rojas y quesos fuertes, y nuestros blancos con pescados y mariscos frescos.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Ofrecen visitas a sus bodegas?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Sí, ofrecemos visitas guiadas a nuestras bodegas donde los visitantes pueden aprender sobre nuestro proceso de elaboración del vino y degustar nuestras variedades.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Cómo puedo adquirir sus vinos?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Puede adquirir nuestros vinos directamente en nuestra tienda en línea, en tiendas especializadas de vinos o en algunos restaurantes y bares selectos que ofrecen nuestra selección.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Tienen programas de membresía o club de vinos?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Sí, contamos con un exclusivo club de vinos donde los socios reciben envíos regulares de nuestras mejores selecciones, descuentos especiales y acceso a eventos exclusivos.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Cuál es su política de devolución o garantía de calidad?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Nos enorgullecemos de la calidad de nuestros vinos, pero si por alguna razón no está satisfecho con su compra, contáctenos y estaremos encantados de resolver cualquier problema o realizar un reembolso según nuestras políticas.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          ¿Tienen vinos premiados o reconocidos?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Sí, varios de nuestros vinos han sido galardonados en concursos y han recibido elogios de expertos en la industria, lo que respalda nuestra dedicación a la excelencia enológica.
+          </p>
+        </div>
+      </div>
+
+<br><br><br><br>
+
+
+
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+
