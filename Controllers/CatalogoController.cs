@@ -28,16 +28,23 @@ namespace trabajo_final_grupo_verde.Controllers
 
         }
 
+<<<<<<< HEAD
         public IActionResult Index(string? searchString)
+=======
+         public IActionResult Index(string? searchString)
+>>>>>>> ba915be (Agregando cuadro de búsqueda)
         {
             var productos = from o in _context.DataProducto select o;
             if(!String.IsNullOrEmpty(searchString)){
                 productos = productos.Where(s => s.Nombre.Contains(searchString));
             }
+<<<<<<< HEAD
             //productos = productos.Where(l => l.Status.Contains("A"));
+=======
+        
+>>>>>>> ba915be (Agregando cuadro de búsqueda)
             return View(productos.ToList());
         }
-
           public async Task<IActionResult> Detalle(int? id){
             Producto objProduct = await _context.DataProducto.FindAsync(id);
             if(objProduct == null){
