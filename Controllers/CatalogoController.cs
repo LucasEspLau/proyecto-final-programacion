@@ -22,12 +22,15 @@ namespace trabajo_final_grupo_verde.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+         public IActionResult Index(string? searchString)
         {
             var productos = from o in _context.DataProducto select o;
+            if(!String.IsNullOrEmpty(searchString)){
+                productos = productos.Where(s => s.Nombre.Contains(searchString));
+            }
+        
             return View(productos.ToList());
         }
-
           public async Task<IActionResult> Detalle(int? id){
             Producto objProduct = await _context.DataProducto.FindAsync(id);
             if(objProduct == null){
