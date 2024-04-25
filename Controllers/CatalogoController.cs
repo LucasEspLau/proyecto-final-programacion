@@ -34,11 +34,7 @@ namespace trabajo_final_grupo_verde.Controllers
             if(!String.IsNullOrEmpty(searchString)){
                 productos = productos.Where(s => s.Nombre.Contains(searchString));
             }
-<<<<<<< HEAD
             //productos = productos.Where(l => l.Status.Contains("A"));
-=======
-        
->>>>>>> ba915be (Agregando cuadro de búsqueda)
             return View(productos.ToList());
         }
           public async Task<IActionResult> Detalle(int? id){
