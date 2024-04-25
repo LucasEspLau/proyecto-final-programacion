@@ -16,4 +16,8 @@ public DbSet<Producto> DataProducto {get; set; }
         : base(options)
     {
     }
+    public DbSet<Proforma> DataItemCarrito { get; set; }
+
 }
+
+

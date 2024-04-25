@@ -17,6 +17,12 @@ namespace trabajo_final_grupo_verde.Controllers
         {
             _logger = logger;
         }
+        public class CarritoViewModel
+        {
+            public List<Producto> Productos { get; set; }
+            public decimal TotalCosto { get; set; }
+        }
+
 
         public IActionResult Index()
         {   
@@ -32,8 +38,16 @@ namespace trabajo_final_grupo_verde.Controllers
                     }
                 }
             }
+            decimal totalCosto = productos.Sum(p => p.Precio);
 
-            return View("ListaCarrito", productos);
+
+                var viewModel = new CarritoViewModel
+                {
+                    Productos = productos,
+                    TotalCosto = totalCosto
+                };
+
+                return View("ListaCarrito", viewModel);
         }
 
 

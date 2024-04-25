@@ -56,13 +56,15 @@ namespace trabajo_final_grupo_verde.Controllers
 
                 var sessionKey = "Producto_" + userID + "_" + id;
                 Util.SessionExtensions.Set<Producto>(HttpContext.Session, sessionKey, producto);
+                /*
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
                 proforma.Precio = producto.Precio;
                 proforma.Cantidad = 1;
                 proforma.UserID = userID;
-                //_context.Add(proforma);
+                _context.Add(proforma);
                 await _context.SaveChangesAsync();
+                */
                 ViewData["Message"] = "Se Agrego al carrito";
                 return RedirectToAction(nameof(Index));
             }
