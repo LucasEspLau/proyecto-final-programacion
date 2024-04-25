@@ -171,11 +171,17 @@ body {
         width: 100%; /* Establece el ancho del texto al 100% en pantallas pequeñas */
     }
 }
-.title1{
+.title1 {
     font-size: 60px;
     font-weight: 600;
     font-family: "Battambang", Arial, sans-serif;
-    
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.indented {
+    display: block; /* Asegura que el texto esté en una nueva línea */
+    margin-left: 40px; /* Ajusta la sangría según sea necesario */
 }
 
 

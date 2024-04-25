@@ -1,36 +1,33 @@
 @model IEnumerable<trabajo_final_grupo_verde.Models.Producto>
+
 @{
     ViewData["Title"] = "CATÁLOGO";
 }
+
 <body style="background-color: #F4F4F4;">
-  <h1 style="text-align: center;">@ViewData["Title"]</h1>
-  <div class="container">
-    <h1>@ViewData["Message"]</h1>
-    <div class="row">
-      <div class="col">
-        <div id="products" class="mb-3">
-          <div class="row">
+    <div class="container my-5">
+        <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+        
+        <div class="row">
             @foreach (var item in Model) {
-            <div class="col-sm-6 col-md-4" >
-              <div class="card mb-3" style="box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);">
-                <div class="card-body">
-                  <div class="card-img-actions">
-                      <img src="@item.ImagenURL" class="d-block w-100 image-fit">
-                  </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <img src="@item.ImagenURL" alt="@item.Nombre" class="card-img-top" style="object-fit: cover; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nombre</h5>
+                        <p class="card-text">Precio: @String.Format("{0:C}", item.Precio)</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="@Url.Action("Add", new { id = item.Id })" class="btn btn-primary">
+                                <i class="fas fa-cart-plus"></i> Agregar a carrito
+                            </a>
+                            <a href="@Url.Action("Detalle", new { id = item.Id })" class="btn btn-info">
+                                <i class="fas fa-info-circle"></i> Ver más
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nombre)</h5>
-                  <p class="card-text">@Html.DisplayFor(modelItem => item.Precio)</p>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="@item.Id">Agregar a carrito</a>
-                  <a class="btn btn-info" asp-action="Detalle" asp-route-id="@item.Id">Ver más</a>
-                </div>
-              </div>
             </div>
             }
-         </div>
         </div>
-      </div>
     </div>
-  </div>
-
 </body>
