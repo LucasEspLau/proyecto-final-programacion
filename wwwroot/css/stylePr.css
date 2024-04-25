@@ -1,6 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  width: 100%;
+  background-image: url("/images/imagen5.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
 
-
+.container4 {
+  max-width: 2000px; /* Ancho máximo */
+  margin: auto;
+  padding: 20px;
+  background-color: white; /* Fondo blanco */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  border-radius: 50px; /* Bordes redondeados */
+}
 .wrapper {
   max-width: 75%;
   margin: auto;
