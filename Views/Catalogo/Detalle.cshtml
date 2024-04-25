@@ -3,23 +3,24 @@
 @{
     ViewData["Title"] = "Detalle";
 }
-
-    <h1 style="text-align: center;">Detalle del Producto</h1>
-    <div class="container">
-            <div class="col-sm-4">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="card-img-actions">
-                    <img class="img-responsive" width="96" height="150"
-                       src="@Html.DisplayFor(model => model.ImagenURL)"  />
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">@Html.DisplayFor(model => model.Nombre)</h5>
-                   <h5 class="card-title">@Html.DisplayFor(model => model.Descripcion)</h5>
-                  <h5 class="card-title">@Html.DisplayFor(model => model.Precio)</h5>
-                  <a class="btn btn-primary" asp-action="Add" asp-route-id="Id">Agregar al carrito</a>
-                </div>
-              </div>
+<link rel="stylesheet" href="~/css/info.css" /><br><br>
+<div class="contenido">
+<div class="container2">
+    <h1 style="text-align: center;">Detalle del Producto</h1><br>
+    <div class="card">
+        <!-- Imagen a la izquierda -->
+        <div class="card-body">
+            <div class="card-img-actions">
+                <img class="img-responsive" src="@Model.ImagenURL" alt="Imagen de @Model.Nombre" />
             </div>
+        </div>
+        <!-- Detalles del producto a la derecha -->
+        <div class="card-body">
+            <h5 class="card-title">@Model.Nombre</h5>
+            <p>@Model.Descripcion</p>
+            <h5 class="card-title">Precio: @Model.Precio</h5>
+            <a class="btn btn-primary" asp-action="Add" asp-route-id="@Model.Id">Agregar al carrito</a>
+        </div>
     </div>
+    </div>
+</div>

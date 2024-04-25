@@ -1,0 +1,58 @@
+/* Estilo para el contenedor principal */
+body {
+    width: 100%;
+    background-image: url("/images/imagen5.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+.contenido{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container2 {
+    max-width: 800px; /* Ancho máximo */
+    margin: auto;
+    padding: 20px;
+    background-color: white; /* Fondo blanco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo para la tarjeta */
+.card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar desbordamiento */
+    display: flex; /* Usar diseño de flexbox */
+    flex-direction: row; /* Alinear los elementos en fila */
+}
+
+/* Estilo para las imágenes en la tarjeta */
+.card-img-actions img {
+    object-fit: contain; /* Ajusta la imagen para que se vea completa */
+    width: 300px; /* Ancho fijo de la imagen */
+    height: auto; /* Ajusta automáticamente la altura */
+    display: block; /* Muestra la imagen como un bloque */
+}
+
+/* Estilo para la parte derecha de la tarjeta */
+.card-body {
+    padding-left: 20px; /* Espacio a la izquierda */
+    flex-grow: 1; /* Permitir que crezca para ocupar el espacio disponible */
+}
+
+/* Estilo para el título, descripción y precio */
+h5, p {
+    margin-bottom: 10px; /* Espacio inferior */
+    font-size: 1.1em; /* Ajusta el tamaño de fuente */
+}
+
+/* Estilo para el botón */
+.btn {
+    margin-top: 20px; /* Espacio superior */
+}

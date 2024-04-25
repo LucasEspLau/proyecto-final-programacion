@@ -1,0 +1,49 @@
+/* Estilo global para la página */
+body {
+    width: 100%;
+    background-image: url("/images/imagen5.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    
+}
+/* Estilo del contenedor principal del catálogo */
+.container1 {
+    max-width: 1500px; /* Ancho máximo del contenedor */
+    margin: auto;
+    padding: 20px;
+    background-color: white; /* Fondo blanco para el catálogo */
+    /* Sombra sutil */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilo para las tarjetas de productos */
+.card {
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Ocultar desbordamiento */
+    transition: transform 0.2s ease; /* Animación sutil al pasar el ratón */
+}
+
+/* Efecto al pasar el ratón sobre las tarjetas */
+.card:hover {
+    transform: scale(1.02); /* Escala la tarjeta ligeramente */
+}
+
+/* Estilo para las imágenes dentro de las tarjetas */
+.card-img-actions img {
+    object-fit: contain; /* Ajusta la imagen para que se vea completa */
+    width: 100%; /* Ancho completo */
+    height: 200px; /* Altura fija para todas las imágenes */
+    display: block; /* Muestra la imagen como un bloque */
+}
+
+/* Estilo para los botones */
+.btn {
+    margin-top: 10px; /* Espacio entre botones */
+    margin-right: 5px; /* Espacio entre botones */
+}
+
+/* Estilo para los títulos y textos */
+h1, h5, p {
+    margin: 0;
+}
