@@ -28,11 +28,7 @@ namespace trabajo_final_grupo_verde.Controllers
 
         }
 
-<<<<<<< HEAD
         public IActionResult Index(string? searchString)
-=======
-         public IActionResult Index(string? searchString)
->>>>>>> ba915be (Agregando cuadro de búsqueda)
         {
             var productos = from o in _context.DataProducto select o;
             if(!String.IsNullOrEmpty(searchString)){
