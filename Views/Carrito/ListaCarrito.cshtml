@@ -1,26 +1,60 @@
-@model List<trabajo_final_grupo_verde.Models.Producto>
+@model trabajo_final_grupo_verde.Controllers.CarritoController.CarritoViewModel
 
-<h1>Productos en el carrito</h1>
+<style>
 
-@if (Model.Count > 0)
+.div-carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.div-carrito button{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    margin-left: 40px;
+    background-color: #5D8AA8;
+    font-weight: 600;
+    color: white;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+
+}
+.div-carrito button:hover{
+    background-color: #007FFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+}
+</style>
+<div class="div-carrito">
+    <h1 class="h1-carrito-title">Productos en el carrito</h1>
+    <form asp-controller="Pagar" asp-action="Index">
+        <button>Pagar</button>
+    </form>
+
+    <h1>Total a pagar: @Model.TotalCosto</h1>
+</div>
+@if (Model.Productos.Count > 0)
 {
     <table class="table">
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Precio</th>
                 <th>Imagen</th>
                 <th>Descripción</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var producto in Model)
+            @foreach (var producto in Model.Productos)
             {
                 <tr>
                     <td>@producto.Nombre</td>
-                    <td>@producto.Precio</td>
                     <td><img src="@producto.ImagenURL" alt="Imagen de @producto.Nombre" style="max-width: 100px; max-height: 100px;" /></td>
                     <td>@producto.Descripcion</td>
+                    <td>@producto.Precio</td>
+
+                    
                 </tr>
             }
         </tbody>
