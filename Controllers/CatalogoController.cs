@@ -53,7 +53,9 @@ namespace trabajo_final_grupo_verde.Controllers
                 return  View("Index",productos);
             }else{
                 var producto = await _context.DataProducto.FindAsync(id);
-                Util.SessionExtensions.Set<Producto>(HttpContext.Session,"Producto1", producto);
+
+                var sessionKey = "Producto_" + userID + "_" + id;
+                Util.SessionExtensions.Set<Producto>(HttpContext.Session, sessionKey, producto);
                 Proforma proforma = new Proforma();
                 proforma.Producto = producto;
                 proforma.Precio = producto.Precio;

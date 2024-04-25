@@ -20,24 +20,22 @@ namespace trabajo_final_grupo_verde.Controllers
 
         public IActionResult Index()
         {   
-            List<Producto> productos = [];
-            var producto = Util.SessionExtensions.Get<Producto>(HttpContext.Session,"Producto1");
-            productos.Add(producto);
-            /*
+            List<Producto> productos = new List<Producto>();
             foreach (var key in HttpContext.Session.Keys)
-            {
+            {   
                 if (key.StartsWith("Producto"))
                 {
-                    var producto = Util.SessionExtensions.Get<Producto>(HttpContext.Session,key);
+                    var producto = Util.SessionExtensions.Get<Producto>(HttpContext.Session, key);
                     if (producto != null)
                     {
                         productos.Add(producto);
                     }
                 }
-            }*/
+            }
 
             return View("ListaCarrito", productos);
         }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
