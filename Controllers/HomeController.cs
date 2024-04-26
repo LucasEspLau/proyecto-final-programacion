@@ -78,7 +78,7 @@ public class HomeController : Controller
 
             Saludos cordiales,
 
-            [La Empresa Cervezera Inkamanu]
+            [La Empresa de vinos Vilife]
         ";
 
         //await _emailSender.SendEmailAsync(objContacto.Email, "Gracias por contactarnos", message);
