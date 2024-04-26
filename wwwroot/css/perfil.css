@@ -1,0 +1,25 @@
+.div-main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+body {
+    width: 100%;
+    background-image: url("/images/imagen2.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    color: black;
+}
+.div-main-2{
+    width: 70%;
+    min-height: 70vh;
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
