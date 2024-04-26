@@ -4,6 +4,7 @@ body {
   background-image: url("/images/imagen5.jpg");
   background-attachment: fixed;
   background-size: cover;
+  color: white;
   
 }
 
@@ -11,7 +12,7 @@ body {
   max-width: 2000px; /* Ancho máximo */
   margin: auto;
   padding: 20px;
-  background-color: white; /* Fondo blanco */
+  background-color: #750D37; /* Fondo blanco */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   border-radius: 50px; /* Bordes redondeados */
 }
@@ -32,7 +33,6 @@ body {
 
 .accordion {
   background-color: white;
-  color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   font-size: 1.2rem;
   width: 100%;
