@@ -17,6 +17,9 @@ public DbSet<Producto> DataProducto {get; set; }
     {
     }
     public DbSet<Proforma> DataItemCarrito { get; set; }
+    public DbSet<Pago> DataPago {get; set; }
+    public DbSet<Pedido> DataPedido {get; set; }
+    public DbSet<DetallePedido> DataDetallePedido {get; set; }
 
 }
 
