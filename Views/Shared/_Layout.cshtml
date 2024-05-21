@@ -50,9 +50,6 @@
                         <a class="nav-link" asp-area="" asp-controller="Catalogo" asp-action="Index" style="color: white;">Catálogo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Producto" asp-action="Index" style="color: white;">Producto</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="PreguntasFrecuentes" style="color: white;">Preguntas frecuentes</a>
                     </li>
                 </ul>
@@ -61,10 +58,7 @@
             <!-- Formulario de búsqueda y carrito -->
             <div class="d-flex align-items-center">
                 <!-- Formulario de búsqueda -->
-                <form asp-controller="Catalogo" asp-action="Index" class="d-flex me-3">
-                    <input type="text" name="searchString" class="form-control" placeholder="Buscar...">
-                    <button type="submit" class="btn btn-outline-light ms-2">Buscar</button>
-                </form>
+                
                 
                 <!-- Carrito -->
                 <a class="nav-link" asp-area="" asp-controller="Carrito" asp-action="Index" style="color: white;">
@@ -73,6 +67,7 @@
 
                 <!-- Incluir _LoginPartial -->
             </div>
+            <partial name="_MenuAdminPartial" />
             <partial name="_LoginPartial" />
 
         </div>
