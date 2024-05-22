@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using trabajo_final_grupo_verde.Data;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using trabajo_final_grupo_verde.Models;
+using Microsoft.OpenApi.Models;
+using trabajo_final_grupo_verde.Service;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//Registro mi logica customizada y reuzable
+builder.Services.AddScoped<ProductoService, ProductoService>();
 
 // Aquí es donde debes hacer el cambio, usa builder.Configuration en lugar de Configuration
 builder.Services.AddTransient<IMyEmailSender, EmailSender>(i =>
@@ -40,8 +44,19 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
-var app = builder.Build();
 
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "API",
+        Version = "v1",
+        Description = "Descripción de la API"
+    });
+});
+
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -53,6 +68,13 @@ else
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.UseSwagger();
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
