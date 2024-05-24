@@ -1,77 +1,51 @@
-@model dynamic
-@using System.Collections.Generic
+@model dynamic;
+@using System.Collections.Generic;
 @using trabajo_final_grupo_verde.Models.Entity
 
 @{
-    ViewData["Title"] = "Carrito de Compras";
-    IEnumerable<trabajo_final_grupo_verde.Models.Entity.Proforma> listItemsCarrito = Model.elementosCarrito;
-    Decimal montoTotal = Model.montoTotal;
-}
-<body style="background-image: url('/images/imagen2.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-
-
-<div class="background-cover">
-    <div class="container mt-5 bg-light p-4 rounded ">
-        <h1 class="mb-4">@ViewData["Title"]</h1>
-
-        <div class="row mb-3">
-            <div class="col text-right">
-                <a class="btn btn-primary" asp-controller="Pago" asp-action="Create" asp-route-monto="@montoTotal">
-                    Pagar
-                </a>
-                <p class="mt-2"><strong>Total:</strong> S/. @montoTotal</p>
-            </div>
-        </div>
-
-        <table class="table table-striped" style="color: #750D37;">
-            <thead class="thead-dark">
-                <tr>
-                    <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Producto.Nombre)</th>
-                    <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)</th>
-                    <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio)</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (Proforma item in listItemsCarrito) {
-                    <tr>
-                        <td>@Html.DisplayFor(modelItem => item.Producto.Nombre)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
-                        <td>S/. @Html.DisplayFor(modelItem => item.Precio)</td>
-                        <td>
-                            <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@item.Id">
-                                <i class="fas fa-edit"></i> Editar
-                            </a>
-                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">
-                                <i class="fas fa-trash-alt"></i> Eliminar
-                            </a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</div>
-
-@section Scripts {
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    ViewData["Title"] = "Carrito";
+    IEnumerable<trabajo_final_grupo_verde.Models.Entity.Proforma> listItemsCarrito = new List<Proforma>();
+    listItemsCarrito = @Model.elementosCarrito;
+    Decimal montoTotal = @Model.montoTotal;
 }
 
-<style>
-    .background-cover {
-     
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 100vh;
-        padding-top: 60px; /* adjust if needed to account for the navbar height */
-        padding-bottom: 40px; /* adjust if needed to account for the footer height */
-    }
+<h1>@ViewData["Title"]</h1>
 
-    .bg-light {
-        background-color: rgba(255, 255, 255, 0.8); /* Optional: add a semi-transparent background for readability */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 8px;
-    }
-</style>
+<a class="btn btn-primary" asp-controller="Pago" 
+        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a><p>Total S/. @montoTotal</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Producto.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (Proforma item in Model.elementosCarrito) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
