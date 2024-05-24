@@ -8,44 +8,45 @@
     listItemsCarrito = @Model.elementosCarrito;
     Decimal montoTotal = @Model.montoTotal;
 }
+<link rel="stylesheet" href="~/css/index.css" />
 
-<h1>@ViewData["Title"]</h1>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card mt-5" style="background-color: #750D37;">
+            <h1 class="card-header text-white text-center">@ViewData["Title"]</h1>
+            <div class="card-body">
+                <a class="btn btn-primary mb-3" asp-controller="Pago" asp-action="Create" asp-route-monto="@montoTotal">Pagar</a>
+                <p class="mb-3 text-white">Total S/. @montoTotal</p>
 
-<a class="btn btn-primary" asp-controller="Pago" 
-        asp-action="Create" asp-route-monto="@montoTotal">Pagar</a><p>Total S/. @montoTotal</p>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Producto.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (Proforma item in Model.elementosCarrito) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producto.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                <table class="table table-bordered table-striped table-hover" style="background-color: white;">
+                    <thead style="color: #750D37;">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Producto.Nombre)</th>
+                            <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Cantidad)</th>
+                            <th>@Html.DisplayNameFor(model => listItemsCarrito.FirstOrDefault().Precio)</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Proforma item in Model.elementosCarrito)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.Producto.Nombre)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Cantidad)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                                <td>
+                                    <a class="btn btn-sm btn-info text-white" asp-action="Edit" asp-route-id="@item.Id">
+                                        <i class="bi bi-pencil"></i> Editar
+                                    </a>
+                                    <a class="btn btn-sm btn-danger text-white" asp-action="Delete" asp-route-id="@item.Id">
+                                        <i class="bi bi-trash"></i> Eliminar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
