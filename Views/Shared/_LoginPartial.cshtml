@@ -10,6 +10,13 @@
     </li>
 @if (SignInManager.IsSignedIn(User))
 {
+
+    <li class="nav-item">
+                <!-- Carrito -->
+        <a class="nav-link" asp-area="" asp-controller="Carrito" asp-action="Index" style="color: white;">
+            <img src="/images/carrito.png" alt="Carrito" width="44" height="25">
+        </a>
+    </li>
     <li class="nav-item">
         <a  class="nav-link text-white" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
     </li>
