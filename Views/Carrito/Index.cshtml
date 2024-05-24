@@ -3,7 +3,7 @@
 @using trabajo_final_grupo_verde.Models.Entity
 
 @{
-    ViewData["Title"] = "Carrito";
+    ViewData["Title"] = "Carrito de compras";
     IEnumerable<trabajo_final_grupo_verde.Models.Entity.Proforma> listItemsCarrito = new List<Proforma>();
     listItemsCarrito = @Model.elementosCarrito;
     Decimal montoTotal = @Model.montoTotal;
