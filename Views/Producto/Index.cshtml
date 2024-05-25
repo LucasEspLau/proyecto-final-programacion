@@ -3,25 +3,28 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
+<br><br>
+<th>
+<h1 style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">Lista de Productos</h1>
+</th>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="text-align: center; font-weight: bold; font-family: Arial, sans-serif; color:#750D37;" >Create New</a>
 </p>
-<table class="table">
+
+<link rel="stylesheet" href="~/css/catalogo.css" />
+<table  class="table" style="background-color: #985972;">
     <thead>
         <tr>
-            <th>
+            <th style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">
                 @Html.DisplayNameFor(model => model.Nombre)
             </th>
-            <th>
+            <th style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">
                 @Html.DisplayNameFor(model => model.Precio)
             </th>
-            <th>
+            <th style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">
                 @Html.DisplayNameFor(model => model.ImagenURL)
             </th>
-            <th>
+            <th style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">
                 @Html.DisplayNameFor(model => model.Descripcion)
             </th>
             <th></th>
@@ -30,7 +33,7 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="text-align: center; font-weight: bold; font-family: Arial, sans-serif;">
                 @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
@@ -43,9 +46,9 @@
                 @Html.DisplayFor(modelItem => item.Descripcion)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" style="text-align: center; font-weight: bold; font-family: Arial, sans-serif; color:#750D37;" >Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id" style="text-align: center; font-weight: bold; font-family: Arial, sans-serif; color:#750D37;" >Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" style="text-align: center; font-weight: bold; font-family: Arial, sans-serif; color:#750D37;" >Delete</a>
             </td>
         </tr>
 }
