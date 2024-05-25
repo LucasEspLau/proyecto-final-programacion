@@ -4,44 +4,66 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<link rel="stylesheet" href="~/css/index.css" />
 
-<h4>Producto</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
+<style>
+    /* Estilos para el contenedor */
+    .form-container {
+        background-color: #750D37; /* Color de fondo */
+        border-radius: 10px; /* Borde redondeado */
+        padding: 20px; /* Espaciado interno */
+        color: white; /* Color del texto */
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="text-center" style="color: black;">Editar Producto</h1>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="form-container"> <!-- Aplicar el estilo al contenedor -->
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group">
+                        <label asp-for="Nombre" class="control-label">Nombre:</label>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label asp-for="Precio" class="control-label">Precio:</label>
+                        <input asp-for="Precio" class="form-control" />
+                        <span asp-validation-for="Precio" class="text-danger"></span>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label asp-for="ImagenURL" class="control-label">URL de la Imagen:</label>
+                        <input asp-for="ImagenURL" class="form-control" />
+                        <span asp-validation-for="ImagenURL" class="text-danger"></span>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label">Descripción:</label>
+                        <input asp-for="Descripcion" class="form-control" />
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div><br>
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Precio" class="control-label"></label>
-                <input asp-for="Precio" class="form-control" />
-                <span asp-validation-for="Precio" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImagenURL" class="control-label"></label>
-                <input asp-for="ImagenURL" class="form-control" />
-                <span asp-validation-for="ImagenURL" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <a asp-action="Index" class="btn btn-secondary btn-block">Volver al Listado</a>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
