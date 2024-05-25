@@ -5,6 +5,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 using trabajo_final_grupo_verde.Models;
 using Microsoft.OpenApi.Models;
 using trabajo_final_grupo_verde.Service;
+using trabajo_final_grupo_verde.Integration.currencyexchange;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,9 @@ builder.Services.AddControllersWithViews();
 
 //Registro mi logica customizada y reuzable
 builder.Services.AddScoped<ProductoService, ProductoService>();
+
+
+builder.Services.AddScoped<CurrencyExchangeApiIntegration, CurrencyExchangeApiIntegration>();
 
 // Aquí es donde debes hacer el cambio, usa builder.Configuration en lugar de Configuration
 builder.Services.AddTransient<IMyEmailSender, EmailSender>(i =>

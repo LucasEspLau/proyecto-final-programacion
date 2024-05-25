@@ -2,62 +2,55 @@
 @{
     ViewData["Title"] = "Pago";
 }
-<h1>@ViewData["Title"]</h1>
 
-    <div class="container">
+<link rel="stylesheet" href="~/css/index.css" />
+   
 
-        <div class="row">
-          <div class="col-sm-10 mt-5">
-           <form asp-controller="Pago" asp-action="Pagar">
-              <div class="form-group row">
-                <input type="hidden" asp-for="UserID"/>
-                <div class="col-sm-2">
-                  <label asp-for="NombreTarjeta" class="control-label"></label>
-                </div>
-                <div class="col-sm-2">
-                  <input asp-for="NombreTarjeta" class="form-control" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="NumeroTarjeta" class="control-label"></label>
-                </div>
-                <div class="col-sm-2">
-                  <input asp-for="NumeroTarjeta" class="form-control" data-inputmask="'mask': '9999-9999-9999-9999'" />
-                </div>
-              </div>              
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="DueDateYYMM" class="control-label"></label>
-                </div>
-                <div class="col-sm-2">
-                  <input asp-for="DueDateYYMM" class="form-control" data-inputmask="'mask': '99/99', 'placeholder': 'yy/mm'" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="Cvv" class="control-label"></label>
-                </div>
-                <div class="col-sm-2">
-                  <input asp-for="Cvv" class="form-control" data-inputmask="'mask': '999', 'placeholder': '999'" />
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-sm-2">
-                  <label asp-for="MontoTotal" class="control-label"></label>
-                </div>
-                <div class="col-sm-2">
-                  <input asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." />
-                </div>
-              </div>  
-              <div class="form-group row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-2">
-                  <button type="submit" class="btn btn-primary">Pagar</button> 
-                </div>
-              </div>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-sm-8">
+        
+            <form asp-controller="Pago" asp-action="Pagar" class="card p-4" style="background-color: #750D37;">
+            <h1 class="text-center">@ViewData["Title"]</h1><br>
+                <div class="form-group row">
+                    <label for="NombreTarjeta" class="col-sm-4 col-form-label text-white">Nombre en la Tarjeta:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="NombreTarjeta" asp-for="NombreTarjeta" class="form-control" />
+                    </div>
+                </div><br>
+                <div class="form-group row">
+                    <label for="NumeroTarjeta" class="col-sm-4 col-form-label text-white">Número de Tarjeta:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="NumeroTarjeta" asp-for="NumeroTarjeta" class="form-control" data-inputmask="'mask': '9999-9999-9999-9999'" />
+                    </div>
+                </div><br>
+                <div class="form-group row">
+                    <label for="DueDateYYMM" class="col-sm-4 col-form-label text-white">Fecha de Vencimiento (YY/MM):</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="DueDateYYMM" asp-for="DueDateYYMM" class="form-control" data-inputmask="'mask': '99/99', 'placeholder': 'yy/mm'" />
+                    </div>
+                </div><br>
+                <div class="form-group row">
+                    <label for="Cvv" class="col-sm-4 col-form-label text-white">CVV:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="Cvv" asp-for="Cvv" class="form-control" data-inputmask="'mask': '999', 'placeholder': '999'" />
+                    </div>
+                </div><br>
+                <div class="form-group row">
+                    <label for="MontoTotal" class="col-sm-4 col-form-label text-white">Monto Total:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="MontoTotal" asp-for="MontoTotal" class="form-control" data-thousands="," data-decimal="." />
+                    </div>
+                </div><br>
+                <div class="form-group row justify-content-center">
+    <div class="col-sm-6" style="text-align: center;">
+        <button type="submit" class="btn btn-primary btn-block">Pagar</button> 
+    </div>
+</div>
+
             </form>
-            <h1>@ViewData["Message"]</h1>
-          </div>
+            <h3 class="text-center mt-3" style="color: black;">@ViewData["Message"]</h3>
+
         </div>
     </div>
+</div>
