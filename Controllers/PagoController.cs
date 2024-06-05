@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using trabajo_final_grupo_verde.Models;
 using Microsoft.AspNetCore.Identity;
-
 using trabajo_final_grupo_verde.Data;
 using Microsoft.EntityFrameworkCore;
 using trabajo_final_grupo_verde.Models.Entity;
+using trabajo_final_grupo_verde.Service;
 
 namespace trabajo_final_grupo_verde.Controllers
 {
@@ -20,13 +20,16 @@ namespace trabajo_final_grupo_verde.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
 
+          private readonly PagoService _pagoService;
+
         public PagoController(ILogger<PagoController> logger,
             UserManager<IdentityUser> userManager,
-            ApplicationDbContext context)
+            ApplicationDbContext context, PagoService pagoService)
         {
             _logger = logger;
             _userManager = userManager;
             _context = context;
+            _pagoService = pagoService;
         }
 
         public IActionResult Create(Decimal monto)
@@ -88,5 +91,16 @@ namespace trabajo_final_grupo_verde.Controllers
         {
             return View("Error!");
         }
+
+         public async Task<IActionResult> Index()
+        {
+         
+            var pagos = await _pagoService.GetAll();
+            return pagos != null ?
+                        View(pagos) :
+                        Problem("Entity set 'ApplicationDbContext.DataPago'  is null.");
+        }
+
+        
     }
 }

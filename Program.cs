@@ -28,7 +28,8 @@ builder.Services.AddControllersWithViews();
 
 //Registro mi logica customizada y reuzable
 builder.Services.AddScoped<ProductoService, ProductoService>();
-
+builder.Services.AddScoped<PedidoService, PedidoService>();
+builder.Services.AddScoped<PagoService, PagoService>();
 
 builder.Services.AddScoped<CurrencyExchangeApiIntegration, CurrencyExchangeApiIntegration>();
 

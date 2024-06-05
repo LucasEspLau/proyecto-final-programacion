@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Dynamic;
 using trabajo_final_grupo_verde.Models.Entity;
+using trabajo_final_grupo_verde.Service;
 
 namespace trabajo_final_grupo_verde.Controllers
 {
@@ -19,6 +20,8 @@ namespace trabajo_final_grupo_verde.Controllers
         private readonly ILogger<CarritoController> _logger;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly ApplicationDbContext _context;
+
+       
 
         public CarritoController(ILogger<CarritoController> logger,
         ApplicationDbContext context,
