@@ -6,9 +6,20 @@ using trabajo_final_grupo_verde.Models;
 using Microsoft.OpenApi.Models;
 using trabajo_final_grupo_verde.Service;
 using trabajo_final_grupo_verde.Integration.currencyexchange;
+using AnalisisSentimental;
+using Microsoft.Extensions.ML;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddEndpointsApiExplorer();
+
+
+builder.Services.AddPredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput>()
+    .FromFile("MLModel1.mlnet");
 
 // Add services to the container.
 /*var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
@@ -88,6 +99,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 app.UseSession();
+
+app.MapPost("/predict",
+    async (PredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput> predictionEnginePool, MLModel1.ModelInput input) =>
+        await Task.FromResult(predictionEnginePool.Predict(input)));
 
 app.MapControllerRoute(
     name: "default",
