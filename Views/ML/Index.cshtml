@@ -1,19 +1,56 @@
 @{
     ViewData["Title"] = "Análisis de Sentimientos";
 }
+<link rel="stylesheet" href="~/css/info.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<style>
+    
+    .form-group label {
+        font-weight: bold;
+    }
 
-<h1>@ViewData["Title"]</h1>
+    .btn-primary {
+        width: 100%;
+    }
 
-<form asp-controller="ML" asp-action="Predict" method="post">
-    <div class="form-group">
-        <label for="sentimiento">Escribe tu sentimiento:</label>
-        <input type="text" class="form-control" id="sentimiento" name="sentimiento" />
-    </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-@if (ViewData["Sentimiento"] != null)
-{
-    <h2>Resultado de la Predicción</h2>
-    <p>Sentimiento Predicho: @ViewData["Sentimiento"]</p>
-    <p>Sentimiento Score: @ViewData["Score"]</p>
-}
+    .resultado {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+    }
+</style>
+<br><br>
+<div class="container2">
+        <h1>@ViewData["Title"]</h1>
+
+        <form asp-controller="ML" asp-action="Predict" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="sentimiento">Escribe tu sentimiento:</label>
+                <input type="text" class="form-control" id="sentimiento" name="sentimiento" placeholder="Escribe tu sentimiento aquí..." />
+                <div class="invalid-feedback">Por favor, escribe tu sentimiento.</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        @if (ViewData["Sentimiento"] != null)
+        {
+            <div class="resultado">
+                <h2>Resultado de la Predicción</h2>
+                <p><strong>Sentimiento Predicho:</strong> @ViewData["Sentimiento"]</p>
+                <p><strong>Score:</strong> @ViewData["Score"]</p>
+            </div>
+        }
+
+</div>
+<script>
+    function validateForm() {
+        var input = document.getElementById('sentimiento');
+        if (input.value.trim() === "") {
+            input.classList.add('is-invalid');
+            return false;
+        }
+        input.classList.remove('is-invalid');
+        return true;
+    }
+</script>
