@@ -8,6 +8,7 @@ using trabajo_final_grupo_verde.Service;
 using trabajo_final_grupo_verde.Integration.currencyexchange;
 using AnalisisSentimental;
 using Microsoft.Extensions.ML;
+using trabajo_final_grupo_verde.Controllers;
 
 
 
@@ -41,6 +42,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ProductoService, ProductoService>();
 builder.Services.AddScoped<PedidoService, PedidoService>();
 builder.Services.AddScoped<PagoService, PagoService>();
+builder.Services.AddScoped<MLController, MLController>();
 
 builder.Services.AddScoped<CurrencyExchangeApiIntegration, CurrencyExchangeApiIntegration>();
 

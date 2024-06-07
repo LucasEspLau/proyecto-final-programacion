@@ -30,5 +30,8 @@ namespace trabajo_final_grupo_verde.Models.Entity
 
         [Column("Mensaje")]
         public string? Mensaje { get; set; }
+
+        [Column("Comentario")]
+        public String Comentario { get; set; }
     }
 }

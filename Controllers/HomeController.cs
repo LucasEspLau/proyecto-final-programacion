@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using AnalisisSentimental;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.ML;
 using trabajo_final_grupo_verde.Data;
 using trabajo_final_grupo_verde.Models;
 using trabajo_final_grupo_verde.Models.Entity;
@@ -13,8 +15,12 @@ public class HomeController : Controller
 
     private readonly IMyEmailSender _emailSender;
 
+    private readonly PredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput> _predictionEnginePool;
+
+    private readonly MLController _mLController;
+
     public HomeController(ILogger<HomeController> logger,
-        ApplicationDbContext context, IMyEmailSender emailSender)
+        ApplicationDbContext context, IMyEmailSender emailSender, PredictionEnginePool<MLModel1.ModelInput, MLModel1.ModelOutput> predictionEnginePool)
     {
         _logger = logger;
 
@@ -22,6 +28,9 @@ public class HomeController : Controller
         _context = context;
 
         _emailSender = emailSender;
+
+        _predictionEnginePool = predictionEnginePool;
+
     }
 
     public IActionResult Index()
@@ -53,6 +62,25 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(Contacto objContacto)
     {
+
+        MLModel1.ModelInput modelInput = new MLModel1.ModelInput()
+        {
+            SENTIMIENTO_TEXT = objContacto.Mensaje
+        };
+
+        MLModel1.ModelOutput prediction = _predictionEnginePool.Predict(modelInput);
+        ViewData["Sentimiento"] = prediction.PredictedLabel;
+        ViewData["Score"] = prediction.Score[1];
+
+        if(prediction.Score[1] >=0.5){
+            objContacto.Comentario = "Positivo";
+        }
+
+        else{
+            objContacto.Comentario = "Negativo";
+        }
+
+
         _context.Add(objContacto);
         await _context.SaveChangesAsync();
 
@@ -71,6 +99,7 @@ public class HomeController : Controller
 
             Tu Número Telefónico fue: {objContacto.Phone}
             Tu Correo electronico fue: {objContacto.Email}
+            Tu prediccion de tu comentario fue : {objContacto.Comentario}
 
             Mientras tanto, te invitamos a explorar nuestro sitio web o nuestras redes sociales para obtener más información sobre nuestros productos y servicios.
 
@@ -80,6 +109,8 @@ public class HomeController : Controller
 
             [La Empresa de vinos Vilife]
         ";
+
+
 
         //await _emailSender.SendEmailAsync(objContacto.Email, "Gracias por contactarnos", message);
         await _emailSender.SendEmailAsync(objContacto.Email, "" + objContacto.Asunto, message1);
