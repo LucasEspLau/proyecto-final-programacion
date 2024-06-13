@@ -25,7 +25,14 @@
 }
 
 </style>
+@using Microsoft.AspNetCore.Identity
+@using System.Collections.Generic;
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 <body>
+  
   <header>
         <nav id="navbar" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color: #000000; font-weight: 700;">
         <div class="container-fluid d-flex justify-content-between">
@@ -39,7 +46,6 @@
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
 
-
             <!-- Navegación -->
             <div class="collapse navbar-collapse  d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
@@ -52,12 +58,27 @@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="PreguntasFrecuentes" style="color: white;">Preguntas frecuentes</a>
                     </li>
+@if (SignInManager.IsSignedIn(User))
+{
+    IdentityUser myidentity  = await Task.Run(() => UserManager.GetUserAsync(User));
+    var roles = await Task.Run(() => UserManager.GetRolesAsync(myidentity));
+
+    @if(!roles.Contains("Admin") ){
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="TipoCambio" asp-action="Index" style="color: white;">Tipo de cambio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto" style="color: white;">Contactenos</a>
                     </li>
+    }
+  }else{
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="TipoCambio" asp-action="Index" style="color: white;">Tipo de cambio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contacto" style="color: white;">Contactenos</a>
+                    </li>
+  }
                 </ul>
             </div>
             
